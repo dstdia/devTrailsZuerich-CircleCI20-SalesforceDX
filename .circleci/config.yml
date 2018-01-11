@@ -15,7 +15,7 @@ jobs:
           command: mkdir tmp; echo $SSL_SERVER_KEY_HEX | xxd -r -ps >> ./tmp/server.key; openssl rsa -in ./tmp/server.key -check -noout
       - run:
           name: auth sfdx
-          command: sfdx force:auth:jwt:grant --clientid $DX_CONSUMER_KEY --jwtkeyfile ./tmp/server.key --username sz@appero.com --setdefaultdevhubusername --setalias hub
+          command: sfdx force:auth:jwt:grant --clientid $DX_CONSUMER_KEY --jwtkeyfile ./tmp/server.key --username $DX_USERNAME --setdefaultdevhubusername --setalias hub
       - run: 
           name: create scratch org, push source
           command: |
